@@ -1,0 +1,34 @@
+li {
+    display: inline;
+    padding: 15px;
+    color: white;
+    font-family:verdana;
+    margin-top: 5px;
+  }
+.blackBackground {
+    background-color: #0a0c0d;
+    /* margin: -15px; */
+    display: inline-block;
+    height: 55px;
+    width: 100%;
+}
+span {
+    border-bottom:1px solid white;
+    padding-bottom:2px;
+}
+.floatRight {
+    float: right;
+    color: white;
+    margin-top: 5px;
+    margin-right: 20px;
+    font-family:verdana;
+    background-color: #0a0c0d;
+}
+p {
+    color: white;
+    margin-right: 10px;
+}
+a { 
+    text-decoration: none;
+    color: white;
+} 
