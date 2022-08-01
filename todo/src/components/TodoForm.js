@@ -21,7 +21,8 @@ function TodoForm() {
             placeholder='Name' 
             value={name} 
             className='todo-input'
-            onChange={(e) => setName(e.target.value)}>
+            onChange={(e) => setName(e.target.value)}
+            required>
         </input>
 
         <input 
@@ -29,7 +30,8 @@ function TodoForm() {
             placeholder='Description' 
             value={des} 
             className='todo-input'
-            onChange={(e) => setDescription(e.target.value)}>
+            onChange={(e) => setDescription(e.target.value)}
+            required>
         </input>
 
         <input 
@@ -37,7 +39,8 @@ function TodoForm() {
             placeholder='Deadline' 
             value={deadline} 
             className='todo-input'
-            onChange={(e) => setDealdline(e.target.value)}>
+            onChange={(e) => setDealdline(e.target.value)}
+            required>
         </input>
 
         <input 
@@ -45,7 +48,8 @@ function TodoForm() {
             placeholder='Schedule Type' 
             value={scheduleType} 
             className='todo-input'
-            onChange={(e) => setScheduleType(e.target.value)}>
+            onChange={(e) => setScheduleType(e.target.value)}
+            required>
         </input>
 
         <input 
@@ -53,7 +57,8 @@ function TodoForm() {
             placeholder='TSG Link' 
             value={tsgLink} 
             className='todo-input'
-            onChange={(e) => setTsgLink(e.target.value)}>
+            onChange={(e) => setTsgLink(e.target.value)}
+            required>
         </input>
         <br/>
         <button className='todo-button'>Add todo</button>
