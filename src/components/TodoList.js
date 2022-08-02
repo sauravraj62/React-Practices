@@ -36,13 +36,14 @@ class TodoList extends React.Component {
             completed: !todo.completed,
             description: todo.description,
             id: todo.id,
-            lastCompletionTime: Date.now() * 1000,
+            lastCompletionTime: Date.now() * 1000000,
             lastUpdatedBy: todo.lastUpdatedBy,
             name: todo.name,
             scheduleType: todo.scheduleType,
             tsgLink: todo.tsgLink
         }
         await axios.put('https://oa-todo-backend.herokuapp.com/todolist/' + todo.id, body);
+        window.location.reload();
       }
 
     render() {
@@ -53,7 +54,7 @@ class TodoList extends React.Component {
                 <tr>
                     <th>Name</th>
                     <th>Description</th>
-                    <th>Deadline</th>
+                    <th>Last Completion Time</th>
                     <th>Last Updated By</th>
                     <th>Schedule Type</th>
                     <th>TSG Link</th>
