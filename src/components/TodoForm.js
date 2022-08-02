@@ -25,7 +25,7 @@ function TodoForm() {
 
   return (
     <div className='form-div'>
-        <h2>Add a task</h2>
+        <h2>Add a DRI Responsibilty</h2>
         <form className="todo-form" onSubmit={handleSubmit}>
         <input 
             type='text' 
@@ -72,8 +72,16 @@ function TodoForm() {
             required>
         </input>
         <br/>
-        <button className='todo-button'>Add todo</button>
+
+    
+        
       </form>
+       <div className="button-container">
+          <input type="submit" value = "Add" />
+        </div>
+        
+     
+
     </div>
   )
 }
