@@ -4,7 +4,8 @@ import '../style/TodoList.css'
 
 class TodoList extends React.Component {
     state = {
-        list : []
+        list : [],
+        checked : true
     }
     componentDidMount = async() => {
         const response = await axios.get('https://oa-todo-backend.herokuapp.com/todolist');
@@ -13,6 +14,13 @@ class TodoList extends React.Component {
         this.setState({list : todos});
         console.log(this.state.list);
     }
+
+    handleChange = (e) => {
+        const { checked } = e.target
+        this.setState({
+          checked: checked
+        })
+      }
 
     render() {
         return (
@@ -25,6 +33,7 @@ class TodoList extends React.Component {
                     <th>Schedule Type</th>
                     <th>TSG Link</th>
                     <th>Modified Time</th>
+                    <th>Done</th>
                 </tr>
                  {
                  this.state.list
@@ -38,6 +47,10 @@ class TodoList extends React.Component {
                         <td>{todo.scheduleType}</td>
                         <td>{todo.tsgLink}</td>
                         <td>{todo.lastUpdated}</td>
+                        <td><input type="checkbox"
+                                    onChange={e => this.handleChange(e)}
+                                    defaultChecked={this.state.checked}/>
+                                {this.state.checked.toString()}</td>
                      </tr>
                      )
                  }

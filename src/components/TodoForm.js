@@ -10,13 +10,15 @@ function TodoForm() {
     const [tsgLink, setTsgLink] = useState('');
 
     const handleSubmit = async(e) => {
+        e.preventDefault();
         const body = {
-            name: "name",
-            scheduleType: "DAILY",
-            description: "des",
-            lastUpdatedBy: "deadline",
-            tsgLink: "tsgLink"
+            name: name,
+            scheduleType: scheduleType,
+            description: des,
+            lastUpdatedBy: deadline,
+            tsgLink: tsgLink
           };
+        console.log("Body" + body);
         const response = await axios.post('https://oa-todo-backend.herokuapp.com/todolist', body);
         console.log("Response" + response);
     }
