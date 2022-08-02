@@ -18,12 +18,25 @@ class TodoList extends React.Component {
         console.log(this.state.list);
     }
 
+    generateDeadline = (scheduleType) => {
+        let ms = Date.now();
+        let milliSecondsInOneDay = 86400000;
+        if(scheduleType == "MONTHLY") {
+            milliSecondsInOneDay = milliSecondsInOneDay * 30;
+        }
+        else if(scheduleType == "WEEKLY") {
+            milliSecondsInOneDay = milliSecondsInOneDay * 7;
+        }
+
+        return ms + milliSecondsInOneDay;
+    }
+
     handleChange = async(todo) => {
         const body = {
             completed: !todo.completed,
             description: todo.description,
             id: todo.id,
-            lastCompletionTime: todo.lastCompletionTime,
+            lastCompletionTime: Date.now() * 1000,
             lastUpdatedBy: todo.lastUpdatedBy,
             name: todo.name,
             scheduleType: todo.scheduleType,

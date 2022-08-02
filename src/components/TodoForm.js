@@ -15,8 +15,8 @@ function TodoForm() {
             name: name,
             scheduleType: scheduleType,
             description: des,
-            lastUpdatedBy: deadline,
-            tsgLink: tsgLink
+            tsgLink: tsgLink,
+            lastUpdatedBy: "admin"
           };
         console.log("Body" + body);
         const response = await axios.post('https://oa-todo-backend.herokuapp.com/todolist', body);
@@ -45,14 +45,14 @@ function TodoForm() {
             required>
         </input>
 
-        <input 
+        {/* <input 
             type='text' 
             placeholder='Deadline' 
             value={deadline} 
             className='todo-input'
             onChange={(e) => setDealdline(e.target.value)}
             required>
-        </input>
+        </input> */}
 
         <input 
             type='text' 
