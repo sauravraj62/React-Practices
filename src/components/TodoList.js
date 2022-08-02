@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import '../style/TodoList.css'
+import NavigationBar from './NavigationBar';
 
 class TodoList extends React.Component {
     state = {
@@ -24,6 +25,8 @@ class TodoList extends React.Component {
 
     render() {
         return (
+            <div className="todo-app">
+            <NavigationBar/>
             <table id='todoTable'>
                 <tr>
                     <th>Name</th>
@@ -55,6 +58,7 @@ class TodoList extends React.Component {
                      )
                  }
             </table>
+            </div>
         )
     }
 }
