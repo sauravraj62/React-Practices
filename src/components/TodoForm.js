@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import TodoFormCSS from '../style/TodoForm.css'
+import axios from 'axios'
 
 function TodoForm() {
     const [name, setName] = useState('');
@@ -8,8 +9,16 @@ function TodoForm() {
     const [deadline, setDealdline] = useState('');
     const [tsgLink, setTsgLink] = useState('');
 
-    const handleSubmit = e => {
-        alert(name + ' ' + scheduleType + " " + des + ' ' + deadline + " " + tsgLink);
+    const handleSubmit = async(e) => {
+        const body = {
+            name: "name",
+            scheduleType: "DAILY",
+            description: "des",
+            lastUpdatedBy: "deadline",
+            tsgLink: "tsgLink"
+          };
+        const response = await axios.post('https://oa-todo-backend.herokuapp.com/todolist', body);
+        console.log("Response" + response);
     }
 
   return (

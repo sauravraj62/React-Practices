@@ -7,8 +7,8 @@ function NavigationBar() {
     return (
         <div className="blackBackground">
             <ul>
-                <a href="/"><li><i className="fa fa-fw fa-home" />  <span>DRI ToDo Checklist</span></li></a>
-                <a href="/todoList"><li><i className="fa fa-fw fa-home" />  <span>Get ToDos List</span></li></a>
+                <a href="/"><li><i className="fa fa-fw fa-home" />  <span>Admin Center</span></li></a>
+                <a href="/todoList"><li><i className="fa fa-fw fa-home" />  <span>DRI Dashboard</span></li></a>
                 <a href="https://github.com/sauravraj62/todo-app" target="_blank" className="floatRight"><li><i className="fa fa-github" /> <span>GitHub</span></li></a>
             </ul>
         </div>
