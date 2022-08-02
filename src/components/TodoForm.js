@@ -77,11 +77,8 @@ function TodoForm() {
         
       </form>
        <div className="button-container">
-          <input type="submit" value = "Add" />
+          <input type="submit" value = "Add" onClick={handleSubmit} />
         </div>
-        
-     
-
     </div>
   )
 }
