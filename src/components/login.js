@@ -12,10 +12,6 @@ function Login() {
   // User Login info
   const database = [
     {
-      username: "admin",
-      password: "password"
-    },
-    {
       username: "dri",
       password: "password"
     }
@@ -41,7 +37,7 @@ function Login() {
         // Invalid password
         setErrorMessages({ name: "pass", message: errors.pass });
       } else {
-        sessionStorage .setItem('uname', uname.value);
+        localStorage.setItem('uname', uname.value);
         setIsSubmitted(true);
       }
     } else {
@@ -77,9 +73,9 @@ function Login() {
     </div>
   );
 
-  if (isSubmitted)
+  if (localStorage.getItem('uname') != "")
   {
-    var uname = sessionStorage.getItem('uname');
+    var uname = localStorage.getItem('uname');
     console.log(String(uname));
     if (uname == "admin")
     {
