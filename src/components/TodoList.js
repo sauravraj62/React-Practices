@@ -1,6 +1,10 @@
+import '../style/TodoList.css'
+import '../style/TodoList.css'
+
+import NavigationBar from './NavigationBar';
 import React from 'react'
 import axios from 'axios'
-import '../style/TodoList.css'
+import moment from 'moment'
 
 class TodoList extends React.Component {
     state = {
@@ -14,8 +18,24 @@ class TodoList extends React.Component {
         console.log(this.state.list);
     }
 
+    handleChange = async(todo) => {
+        const body = {
+            completed: !todo.completed,
+            description: todo.description,
+            id: todo.id,
+            lastCompletionTime: todo.lastCompletionTime,
+            lastUpdatedBy: todo.lastUpdatedBy,
+            name: todo.name,
+            scheduleType: todo.scheduleType,
+            tsgLink: todo.tsgLink
+        }
+        await axios.put('https://oa-todo-backend.herokuapp.com/todolist/' + todo.id, body);
+      }
+
     render() {
         return (
+            <div className="todo-app">
+            <NavigationBar/>
             <table id='todoTable'>
                 <tr>
                     <th>Name</th>
@@ -25,6 +45,7 @@ class TodoList extends React.Component {
                     <th>Schedule Type</th>
                     <th>TSG Link</th>
                     <th>Modified Time</th>
+                    <th>Done</th>
                 </tr>
                  {
                  this.state.list
@@ -33,15 +54,19 @@ class TodoList extends React.Component {
                      <tr>
                         <td>{todo.name}</td>
                         <td>{todo.description}</td>
-                        <td>{todo.lastCompletionTime}</td>
+                        <td>{moment(todo.lastCompletionTime/1000000).format("YYYY-MMM-DD")}</td>
                         <td>{todo.lastUpdatedBy}</td>
                         <td>{todo.scheduleType}</td>
                         <td>{todo.tsgLink}</td>
-                        <td>{todo.lastUpdated}</td>
+                        <td>{moment(todo.lastUpdated/1000000).format("YYYY-MMM-DD")}</td>
+                        <td><input type="checkbox"
+                                    onChange={e => this.handleChange(todo)}
+                                    defaultChecked={todo.completed}/></td>
                      </tr>
                      )
                  }
             </table>
+            </div>
         )
     }
 }
