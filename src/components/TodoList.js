@@ -8,8 +8,7 @@ import moment from 'moment'
 
 class TodoList extends React.Component {
     state = {
-        list : [],
-        checked : true
+        list : []
     }
     componentDidMount = async() => {
         const response = await axios.get('https://oa-todo-backend.herokuapp.com/todolist');
@@ -19,11 +18,18 @@ class TodoList extends React.Component {
         console.log(this.state.list);
     }
 
-    handleChange = (e) => {
-        const { checked } = e.target
-        this.setState({
-          checked: checked
-        })
+    handleChange = async(todo) => {
+        const body = {
+            completed: !todo.completed,
+            description: todo.description,
+            id: todo.id,
+            lastCompletionTime: todo.lastCompletionTime,
+            lastUpdatedBy: todo.lastUpdatedBy,
+            name: todo.name,
+            scheduleType: todo.scheduleType,
+            tsgLink: todo.tsgLink
+        }
+        await axios.put('https://oa-todo-backend.herokuapp.com/todolist/' + todo.id, body);
       }
 
     render() {
@@ -54,9 +60,8 @@ class TodoList extends React.Component {
                         <td>{todo.tsgLink}</td>
                         <td>{moment(todo.lastUpdated/1000000).format("YYYY-MMM-DD")}</td>
                         <td><input type="checkbox"
-                                    onChange={e => this.handleChange(e)}
-                                    defaultChecked={this.state.checked}/>
-                                {this.state.checked.toString()}</td>
+                                    onChange={e => this.handleChange(todo)}
+                                    defaultChecked={todo.completed}/></td>
                      </tr>
                      )
                  }
