@@ -1,6 +1,8 @@
+import '../style/TodoList.css'
+
 import React from 'react'
 import axios from 'axios'
-import '../style/TodoList.css'
+import moment from 'moment'
 
 class TodoList extends React.Component {
     state = {
@@ -33,11 +35,11 @@ class TodoList extends React.Component {
                      <tr>
                         <td>{todo.name}</td>
                         <td>{todo.description}</td>
-                        <td>{todo.lastCompletionTime}</td>
+                        <td>{moment(todo.lastCompletionTime/1000000).format("YYYY-MMM-DD")}</td>
                         <td>{todo.lastUpdatedBy}</td>
                         <td>{todo.scheduleType}</td>
                         <td>{todo.tsgLink}</td>
-                        <td>{todo.lastUpdated}</td>
+                        <td>{moment(todo.lastUpdated/1000000).format("YYYY-MMM-DD")}</td>
                      </tr>
                      )
                  }
