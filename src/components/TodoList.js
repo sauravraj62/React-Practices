@@ -1,5 +1,7 @@
 import '../style/TodoList.css'
 import '../style/TodoList.css'
+import ReactDOM from 'react-dom/client';
+import ToDoList from './TodoList'
 
 import NavigationBar from './NavigationBar';
 import React from 'react'
@@ -31,6 +33,16 @@ class TodoList extends React.Component {
         return ms + milliSecondsInOneDay;
     }
 
+    dashboard = () => {
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(
+        <React.StrictMode>
+            <NavigationBar/>
+            <ToDoList/>
+        </React.StrictMode>
+        );
+    }
+
     handleChange = async(todo) => {
         const body = {
             completed: !todo.completed,
@@ -43,13 +55,13 @@ class TodoList extends React.Component {
             tsgLink: todo.tsgLink
         }
         await axios.put('https://oa-todo-backend.herokuapp.com/todolist/' + todo.id, body);
-        window.location.reload();
+        this.dashboard();
       }
 
       handleDelete = async(todo) => {
         await axios.delete('https://oa-todo-backend.herokuapp.com/todolist/' + todo.id);
         alert(todo.name + " deleted successfully");
-        window.location.reload();
+        this.dashboard();
       }
 
     render() {
