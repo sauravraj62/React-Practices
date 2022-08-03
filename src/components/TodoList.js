@@ -46,6 +46,12 @@ class TodoList extends React.Component {
         window.location.reload();
       }
 
+      handleDelete = async(todo) => {
+        await axios.delete('https://oa-todo-backend.herokuapp.com/todolist/' + todo.id);
+        alert(todo.name + " deleted successfully");
+        window.location.reload();
+      }
+
     render() {
         return (
             <div className="todo-app">
@@ -59,6 +65,7 @@ class TodoList extends React.Component {
                     <th>TSG Link</th>
                     <th>Modified Time</th>
                     <th>Done</th>
+                    <th>Actions</th>
                 </tr>
                  {
                  this.state.list
@@ -75,6 +82,7 @@ class TodoList extends React.Component {
                         <td><input type="checkbox"
                                     onChange={e => this.handleChange(todo)}
                                     defaultChecked={todo.completed}/></td>
+                        <td><button onClick={e => this.handleDelete(todo)}>Delete</button></td>
                      </tr>
                      )
                  }

@@ -21,6 +21,8 @@ function TodoForm() {
         console.log("Body" + body);
         const response = await axios.post('https://oa-todo-backend.herokuapp.com/todolist', body);
         console.log("Response" + response);
+        alert(name + " Added successfully");
+        window.location.reload();
     }
 
   return (
