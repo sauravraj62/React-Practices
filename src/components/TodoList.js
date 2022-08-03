@@ -70,7 +70,7 @@ class TodoList extends React.Component {
                         <td>{todo.lastCompletionTime == 0 ? "-" : moment(todo.lastCompletionTime/1000000).format("YYYY-MMM-DD")}</td>
                         <td>{todo.lastUpdatedBy}</td>
                         <td>{todo.scheduleType}</td>
-                        <td>{todo.tsgLink}</td>
+                        <td><a href={todo.tsgLink} target="_blank">Link</a></td>
                         <td>{moment(todo.lastUpdated/1000000).format("YYYY-MMM-DD")}</td>
                         <td><input type="checkbox"
                                     onChange={e => this.handleChange(todo)}

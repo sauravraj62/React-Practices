@@ -13,7 +13,7 @@ function App() {
       <Router>
             <Routes>
                 <Route path="/" element={<TodoForm/>} />
-                <Route path="/todoList" element={<ToDoList/>} />
+                <Route path="/driDashboard" element={<ToDoList/>} />
             </Routes>
       </Router>
     </div>
