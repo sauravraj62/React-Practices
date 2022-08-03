@@ -30,7 +30,7 @@ function NavigationBar() {
     return (
         <div className="blackBackground">
             <ul>
-                <a onClick={app}><li><i className="fa fa-fw fa-home" />  <span>Admin Center</span></li></a>
+                <a href="/"><li><i className="fa fa-fw fa-home" />  <span>Admin Center</span></li></a>
                 <a href="/todoList"><li><i className="fa fa-fw fa-home" />  <span>DRI Dashboard</span></li></a>
                 <div onClick={logout} className="floatRight">Logout</div>
             </ul>

@@ -49,7 +49,6 @@ class TodoList extends React.Component {
     render() {
         return (
             <div className="todo-app">
-            <NavigationBar/>
             <table id='todoTable'>
                 <tr>
                     <th>Name</th>

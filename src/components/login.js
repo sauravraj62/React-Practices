@@ -81,7 +81,7 @@ function Login() {
     {
         return App();
     } else {
-        return <ToDoList/>;
+        return App();
     }
   } else {
     return (
