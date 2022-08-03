@@ -16,7 +16,7 @@ function TodoForm() {
             scheduleType: scheduleType,
             description: des,
             tsgLink: tsgLink,
-            lastUpdatedBy: "admin"
+            lastUpdatedBy: "dri"
           };
         console.log("Body" + body);
         const response = await axios.post('https://oa-todo-backend.herokuapp.com/todolist', body);

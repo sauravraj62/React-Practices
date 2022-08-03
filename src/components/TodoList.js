@@ -59,9 +59,11 @@ class TodoList extends React.Component {
       }
 
       handleDelete = async(todo) => {
-        await axios.delete('https://oa-todo-backend.herokuapp.com/todolist/' + todo.id);
-        alert(todo.name + " deleted successfully");
-        this.dashboard();
+        if(window.confirm("Are you sure?") == true) {
+            await axios.delete('https://oa-todo-backend.herokuapp.com/todolist/' + todo.id);
+            alert(todo.name + " deleted successfully");
+            this.dashboard();
+        }
       }
 
     render() {
@@ -69,7 +71,7 @@ class TodoList extends React.Component {
             <div className="todo-app">
             <table id='todoTable'>
                 <tr>
-                    <th>Name</th>
+                    <th>Task</th>
                     <th>Description</th>
                     <th>Last Completion Time</th>
                     <th>Last Updated By</th>
